@@ -5,97 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CosmoGen Students Society</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script defer src="gndu.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: #0a192f;
-            color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-        nav ul li {
-            display: inline;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-        }
-        section {
-            padding: 100px 50px;
-            text-align: center;
-        }
-        h2 {
-            color: #0a192f;
-            font-size: 2em;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            justify-content: center;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            cursor: pointer;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 50%;
-            text-align: center;
-        }
-        .close {
-            float: right;
-            cursor: pointer;
-        }
+  /* Import Bold Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap');
+
+/* Global Variables */
+:root {
+    --primary-color: #0a192f;  /* Dark Blue */
+    --secondary-color: #00bfff; /* Neon Blue */
+    --text-color: #ffffff; /* White */
+    --bg-color: #000000; /* Black */
+    --card-bg: #121212; /* Dark Grey */
+    --shadow: 0 4px 6px rgba(0,0,0,0.4);
+    --transition: all 0.3s ease-in-out;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding-top: 100px;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    font-weight: 700;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Sections */
+section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card Design */
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 191, 255, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease-in-out;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 30px;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 80%;
+    }
+}
+/* Smooth modal transition */
+#modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Glow effect for clicked names */
+.highlight {
+    background: rgba(255, 223, 0, 0.6);
+    transition: background 0.5s ease-in-out;
+}
+
     </style>
+    
+    
 </head>
 <body>
     <header>
@@ -124,8 +236,8 @@
     <section id="departments">
         <h2>Department Heads</h2>
         <div class="grid">
-            <div class="card" onclick="showModal('Surpreet Kaur', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="surpreet.jpg" alt="Surpreet Kaur"><p><strong>Surpreet Kaur</strong><br> Graphics</p></div>
-            <div class="card" onclick="showModal('Rahul Kaushal', '05 Mar 1999', 'Joined: 20 Sep 2023', 'Building strong partnerships!')"> <img src="rahul.jpg" alt="Rahul Kaushal"><p><strong>Rahul Kaushal</strong><br> Sponsorship & Partnerships</p></div>
+            <div class="card" onclick="showModal('Surpreet Kaur', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="surpreet.jpg" alt="Surpreet Kaur"><p><strong>Surpreet Kaur</strong><br>  Department of Graphics</p></div>
+            <div class="card" onclick="showModal('Rahul Kaushal', '05 Mar 1999', 'Joined: 20 Sep 2023', 'Building strong partnerships!')"> <img src="rahul.jpg" alt="Rahul Kaushal"><p><strong>Rahul Kaushal</strong><br> Department of Sponsorship & Partnerships</p></div>
             <div class="card" onclick="showModal('Sanchita Kaushal', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="Sanchita.jpg" alt="Sanchita Kaushal"><p><strong>Sanchita Kaushal</strong><br> Department of Sponsorship & Partnerships</p></div>
             <div class="card" onclick="showModal('Riya', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="Riya.jpg" alt="Riya"><p><strong>Riya</strong><br> Department of Event Management</p></div>
             <div class="card" onclick="showModal('Divleen Kaur', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="divleen.jpg" alt="Divleen Kaur"><p><strong>Divleen Kaur</strong><br> Department of Analytics</p></div>
@@ -161,18 +273,89 @@
     </footer>
 
     <script>
-        function showModal(name, dob, join, message) {
-            document.getElementById('modal-name').innerText = name;
-            document.getElementById('modal-dob').innerText = 'Date of Birth: ' + dob;
-            document.getElementById('modal-join').innerText = join;
-            document.getElementById('modal-message').innerText = '"' + message + '"';
-            document.getElementById('modal').style.display = 'flex';
+
+       document.addEventListener("DOMContentLoaded", function () {
+    // Function to show modal with dynamic content
+    function showModal(name, dob, join, message) {
+        const modal = document.getElementById('modal');
+        document.getElementById('modal-name').innerText = name;
+        document.getElementById('modal-dob').innerText = 'Date of Birth: ' + dob;
+        document.getElementById('modal-join').innerText = join;
+        document.getElementById('modal-message').innerText = '"' + message + '"';
+
+        // Smooth fade-in effect
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 50);
+
+        // Prevent background scroll
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        
+        // Smooth fade-out effect
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Matches CSS transition time
+
+        // Restore background scroll
+        document.body.style.overflow = 'auto';
+    }
+
+    // Function to copy modal content
+    function copyDetails() {
+        const name = document.getElementById('modal-name').innerText;
+        const dob = document.getElementById('modal-dob').innerText;
+        const join = document.getElementById('modal-join').innerText;
+        const message = document.getElementById('modal-message').innerText;
+        
+        const details = `${name}\n${dob}\n${join}\n${message}`;
+        navigator.clipboard.writeText(details).then(() => {
+            alert("Details copied to clipboard! ✅");
+        });
+    }
+
+    // Attach event listeners to cards
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", function () {
+            const name = this.getAttribute("onclick").match(/'([^']+)'/g).map(str => str.replace(/'/g, ""));
+            showModal(name[0], name[1], name[2], name[3]);
+
+            // Glow effect on clicked name
+            this.classList.add("highlight");
+            setTimeout(() => this.classList.remove("highlight"), 500);
+        });
+    });
+
+    // Attach event listener to close button
+    document.querySelector(".close").addEventListener("click", closeModal);
+
+    // Close modal when clicking outside content
+    window.addEventListener("click", function (event) {
+        if (event.target === document.getElementById("modal")) {
+            closeModal();
         }
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+    });
+
+    // Close modal on Escape key press
+    window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeModal();
         }
+    });
+
+    // Add copy-to-clipboard feature
+    document.getElementById("copy-btn").addEventListener("click", copyDetails);
+});
+
     </script>
 </body>
 </html>
+
 
 

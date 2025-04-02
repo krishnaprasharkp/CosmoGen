@@ -158,15 +158,26 @@ h2 {
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes moveHeading {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes bounceHeading {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Apply animation to headings */
+.moving-heading {
+    display: inline-block;
+    animation: moveHeading 10s infinite ease-in-out;
+}
+
+.bouncing-heading {
+    display: inline-block;
+    animation: bounceHeading 10s infinite ease-in-out;
 }
 
 /* Footer */
@@ -223,18 +234,18 @@ footer {
     </header>
     
     <section id="about">
-        <h2>About Us</h2>
+        <h2 class="moving-heading">About Us</h2>
         <p>CosmoGen Students Society is the only STEM-based society at GNDU, founded on 20th September 2023 by Krishna Prashar. With a vision to uplift the coding culture, CosmoGen serves as a bridge between students and MNCs, providing them with real-world opportunities, technical expertise, and industry exposure.</p>
     </section>
 
     <section id="founder-message">
-        <h2>Message from the Founder</h2>
+        <h2 class="moving-heading">Message from the Founder</h2>
         <p><strong>Mr. Krishna Prashar</strong></p>
         <p>Welcome to CosmoGen! Our mission is to create a thriving tech community at GNDU, where students are equipped with knowledge, skills, and opportunities to excel in the industry. We believe in innovation, collaboration, and the power of learning together. Join us in shaping the future of technology!</p>
     </section>
 
     <section id="departments">
-        <h2>Department Heads</h2>
+        <h2 class="moving-heading"> Department Heads</h2>
         <div class="grid">
             <div class="card" onclick="showModal('Surpreet Kaur', '01 Jan 2000', 'Joined: 20 Sep 2023', 'Graphics is my passion!')"> <img src="surpreet.jpg" alt="Surpreet Kaur"><p><strong>Surpreet Kaur</strong><br>  Department of Graphics</p></div>
             <div class="card" onclick="showModal('Rahul Kaushal', '05 Mar 1999', 'Joined: 20 Sep 2023', 'Building strong partnerships!')"> <img src="rahul.jpg" alt="Rahul Kaushal"><p><strong>Rahul Kaushal</strong><br> Department of Sponsorship & Partnerships</p></div>
@@ -246,7 +257,7 @@ footer {
     </section>
 
     <section id="advisors">
-        <h2>Advisors</h2>
+        <h2 class="moving-heading"> Advisors</h2>
         <div class="grid">
             <div class="card" onclick="showModal('Krishna Prashar', '10 Feb 1998', 'Joined: 20 Sep 2023', 'Guiding sponsorship strategies!')"> <img src="Krishna.jpg" alt="Krishna Prashar"><p><strong>Krishna Prashar</strong><br> Event Management</p></div>
             <div class="card" onclick="showModal('Abhivansh Sharma', '10 Feb 1998', 'Joined: 20 Sep 2023', 'Guiding sponsorship strategies!')"> <img src="abhivansh.jpg" alt="Abhivansh Sharma"><p><strong>Abhivansh Sharma</strong><br> Sponsorships</p></div>
@@ -356,6 +367,7 @@ footer {
     </script>
 </body>
 </html>
+
 
 
 

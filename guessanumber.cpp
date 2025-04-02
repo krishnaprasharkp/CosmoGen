@@ -5,9 +5,8 @@
 using namespace std;
 
 int main() {
-    srand(time(0));  // Seed for random number generation
-    int number = rand() % 100 + 1; // Random number between 1 and 100
-    int guess;
+    srand(time(0));  
+    int number = rand() % 100 + 1; 
     int attempts = 0;
 
     cout << "Welcome to the Guess the Number Game!" << endl;
